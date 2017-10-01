@@ -33,16 +33,15 @@
 		    var toastEvent = $A.get("e.force:showToast");
 		    if (component.isValid() && state === "SUCCESS" ) {
 
-			var result = response.getReturnValue();
-			//<LOGIC_GOES_HERE>
+				var result = response.getReturnValue();
+				//<LOGIC_GOES_HERE>
 
-			toastEvent.setParams({
-			    "title": "Success!",
-			    "type": "success",
-			    "message": "<SUCCESS_MESSAGE_GOES_HERE>"
-			});
-			
-
+				toastEvent.setParams({
+					"title": "Success!",
+					"type": "success",
+					"message": "<SUCCESS_MESSAGE_GOES_HERE>"
+				});
+							
 		    }
 		    else {
 			console.log("Failed with state: " + state);
