@@ -1,0 +1,25 @@
+//login to dev hub org
+// -d => default and -a => alias
+sfdx force:auth:web:login -d -a DevHub
+
+//Command to login to any org
+//-u => provide the org alias name
+sfdx force:org:open -u DevHub
+
+//You can manage differnt orgs in sfdx
+sfdx force:auth:web:login -r https://login.salesforce.com -a SFLab
+
+//Creating new project 
+sfdx force:project:create -n <PROJECT_NAME>
+
+//Create a scratch org
+sfdx force:org:create -s -f config/project-scratch-def.json -a <ORG_ALIAS_NAME>
+
+//config changes pull
+sfdx force:source:pull
+
+//code push
+sfdx force:source:pull
+
+//open default scratch org
+sfdx force:org:open
