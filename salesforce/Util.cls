@@ -399,4 +399,15 @@ public with sharing class Util {
 			}
 			return batchableClasses;
 	   }	
+
+	   public static void handleAuraException(Exception ex){
+			AuraHandledException auraException = new AuraHandledException(ex.getMessage());
+			if(ex instanceof DmlException ){
+				DmlException theDmlException = (DmlException)ex;
+				auraException.setMessage(theDmlException.getDMLMessage(0));
+			}else{
+				auraException.setMessage(ex.getMessage());
+			}
+			throw auraException;
+  	   }
 }
